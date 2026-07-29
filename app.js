@@ -160,8 +160,9 @@ document.addEventListener("keydown", (e) => {
     }
 });
 
-// Dynamically apply Lightbox to classes gallery-photo, plan-image
-document.querySelectorAll(".gallery-photo, .plan-image").forEach(img => {
+// Dynamically apply Lightbox to classes gallery-photo, plan-image, about-gallery-display
+document.querySelectorAll(".gallery-photo, .plan-image, #about-gallery-display").forEach(img => {
+    img.style.cursor = "pointer";
     img.addEventListener("click", () => {
         openLightbox(img.src);
     });
