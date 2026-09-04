@@ -829,9 +829,12 @@ h3 {
 
 .price-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
     margin-top: 1.5rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .price-card-item {
@@ -894,7 +897,7 @@ h3 {
 
 .rules-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
     margin-top: 1.5rem;
 }
@@ -1229,6 +1232,243 @@ h3 {
     .gallery-photo-wrapper {
         height: 200px;
     }
+}
+
+/* --- Open Training Hero Card (Volný Trénink) --- */
+.open-training-hero {
+    position: relative;
+    padding: 3rem;
+    background: linear-gradient(135deg, rgba(255, 122, 0, 0.08) 0%, rgba(26, 26, 30, 0.4) 100%);
+    border: 1.5px solid rgba(255, 122, 0, 0.25);
+    margin-bottom: 2.5rem;
+}
+
+.open-training-hero:hover {
+    border-color: rgba(255, 122, 0, 0.4);
+}
+
+.open-training-hero .ot-tag {
+    display: inline-block;
+    padding: 0.3rem 0.8rem;
+    background: rgba(255, 122, 0, 0.15);
+    color: var(--color-accent-primary);
+    border: 1px solid rgba(255, 122, 0, 0.3);
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 1rem;
+}
+
+.open-training-hero h3 {
+    font-size: 2rem;
+    border: none;
+    padding-bottom: 0;
+    margin-bottom: 0.5rem;
+}
+
+.open-training-hero .ot-motto {
+    font-style: italic;
+    color: var(--color-accent-primary);
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+}
+
+.ot-schedule-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.ot-schedule-item {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--color-border-glass);
+    border-radius: var(--border-radius);
+    padding: 1.5rem;
+}
+
+.ot-schedule-item .ot-day {
+    font-family: var(--font-heading);
+    font-weight: 800;
+    font-size: 1.1rem;
+    color: #ffffff;
+    margin-bottom: 0.3rem;
+}
+
+.ot-schedule-item .ot-time {
+    color: var(--color-accent-primary);
+    font-weight: 600;
+    font-size: 1.05rem;
+}
+
+.ot-price-line {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+}
+
+.ot-price-value {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: var(--color-accent-primary);
+    font-family: var(--font-heading);
+}
+
+.cash-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.25rem 0.7rem;
+    background: rgba(229, 9, 20, 0.12);
+    color: var(--color-accent-red);
+    border: 1px solid rgba(229, 9, 20, 0.3);
+    border-radius: 20px;
+    font-size: 0.72rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.ot-location-line {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--color-text-muted);
+    font-size: 0.95rem;
+    margin-bottom: 2rem;
+}
+
+.ot-location-line i {
+    color: var(--color-accent-secondary);
+}
+
+.ot-details-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 1rem;
+}
+
+.ot-detail-block h4 {
+    font-size: 1.1rem;
+    color: var(--color-accent-secondary);
+    margin-bottom: 0.8rem;
+    border: none;
+    padding-bottom: 0;
+    font-weight: 700;
+}
+
+.ot-detail-block p,
+.ot-detail-block li {
+    color: var(--color-text-muted);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.ot-detail-block ul {
+    list-style: none;
+    padding: 0;
+}
+
+.ot-detail-block ul li {
+    padding: 0.3rem 0;
+    padding-left: 1.2rem;
+    position: relative;
+}
+
+.ot-detail-block ul li::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: var(--color-accent-primary);
+}
+
+/* --- Midnight Warning Callout --- */
+.midnight-warning {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1.5rem 2rem;
+    background: rgba(229, 9, 20, 0.06);
+    border: 1px solid rgba(229, 9, 20, 0.25);
+    border-left: 4px solid var(--color-accent-red);
+    border-radius: var(--border-radius);
+    margin-top: 1rem;
+}
+
+.midnight-warning i {
+    color: var(--color-accent-red);
+    font-size: 1.3rem;
+    margin-top: 0.15rem;
+    flex-shrink: 0;
+}
+
+.midnight-warning strong {
+    color: var(--color-accent-red);
+}
+
+.midnight-warning p {
+    color: var(--color-text-muted);
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* --- Info Cards for Practical Info --- */
+.info-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.info-card {
+    padding: 2rem;
+}
+
+.info-card h3 {
+    font-size: 1.3rem;
+}
+
+.info-card .info-highlight {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin-bottom: 0.8rem;
+}
+
+.info-card .info-highlight i {
+    color: var(--color-accent-secondary);
+    font-size: 1.2rem;
+    flex-shrink: 0;
+}
+
+.info-card .info-highlight strong {
+    color: #ffffff;
+}
+
+.info-card p {
+    color: var(--color-text-muted);
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+/* --- Blockquote Message (O Vlastině closing) --- */
+.blockquote-message {
+    position: relative;
+    padding: 1.5rem 2rem;
+    margin-top: 1rem;
+    border-left: 3px solid var(--color-accent-primary);
+    background: rgba(255, 122, 0, 0.04);
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    font-style: italic;
+    color: var(--color-text-main);
+    font-size: 1.05rem;
+    line-height: 1.6;
 }
 
 /* --- Footer --- */
