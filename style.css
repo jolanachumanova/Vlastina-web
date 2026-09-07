@@ -22,7 +22,7 @@
     --color-accent-red: #e50914; /* Crimson Performance Red */
     
     /* Typography */
-    --font-heading: 'Syne', 'Space Grotesk', system-ui, -apple-system, sans-serif;
+    --font-heading: 'Space Grotesk', system-ui, -apple-system, sans-serif;
     --font-body: 'Outfit', 'Inter', system-ui, -apple-system, sans-serif;
     
     /* Shadows & Transitions */

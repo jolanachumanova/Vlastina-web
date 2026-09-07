@@ -108,7 +108,7 @@ Map content directly from `Vlastina web design.md` (Section 3) into `index.html`
   * Supportive / Highlight: `--color-accent-secondary: #00f2fe` (Cyber Neon Teal), hover `--color-accent-secondary-hover: #00c6d2`
   * Danger / Warning (for Midnight Gate & Baletizol rules): `--color-accent-red: #e50914` (Crimson Performance Red)
 * **Typography**:
-  * Headings: `--font-heading: 'Syne', 'Space Grotesk', system-ui, sans-serif` (weight `800`)
+  * Headings: `--font-heading: 'Space Grotesk', system-ui, sans-serif` (weights `700`/`800`)
   * Body & Descriptions: `--font-body: 'Outfit', 'Inter', system-ui, sans-serif` (weights `400`/`500`/`600`)
 * **Spacing**: Preserve responsive spacing (`clamp()` or consistent rems). Avoid horizontal overflow on mobile viewports (< 480px).
 
