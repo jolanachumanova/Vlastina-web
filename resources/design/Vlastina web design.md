@@ -1,12 +1,12 @@
 # Vlastina – Web Design, UX & Content Specification
 
-Tento dokument slouží jako komplexní podklad pro GitHub Copilota a vývojáře k úpravě a nasazení webových stránek pro neziskový komunitní a tréninkový prostor **Vlastina**.
+Tento dokument slouží jako komplexní podklad a Single Source of Truth (SSOT) pro úpravu a nasazení webových stránek pro neziskový komunitní a tréninkový prostor **Vlastina**.
 
 ---
 
 ## 1. Cíle projektu a Positioning
 
-* **Co je Vlastina:** Autentický komunitní a tréninkový sál s duší, který v bývalém vojenském areálu na Praze 6 vlastníma rukama vybudoval spolek **Blackout Paradox** za pomoci dobrovolníků a dárců na Doniu.
+* **Co je Vlastina:** Autentický komunitní a tréninkový sál s duší, který v bývalém vojenském areálu na Praze 6 vlastníma rukama vybudoval spolek **Vlastina Paradox** ve spolupráci s **Blackout Paradox** za pomoci dobrovolníků a dárců na Doniu.
 * **Hlavní metafora prostoru:** *„Velký obývák s klíči pro ty, kteří tvoří, hýbou se, mají rádi hudbu a hledají bezpečné zázemí.“*
 * **Cílová skupina:** Tanečníci, akrobaté, flow artisti, novocirkusoví performeři, hudebníci, lektoři pohybových a seberozvojových workshopů, lidé z kreativní a spirituální komunity.
 * **Tone of Voice (ladění textů):** 
@@ -15,20 +15,20 @@ Tento dokument slouží jako komplexní podklad pro GitHub Copilota a vývojář
   * Respektující – pravidla prostoru jsou formulována přátelsky, ale jednoznačně (péče o společný domov).
 * **Technické řešení:**
   * Jednostránková responsivní webová prezentace (SPA) s přepínáním tabů/sekcí v čistém JavaScriptu.
-  * Nízké náklady na údržbu, statický hosting, Google Kalendář pro přehled obsazenosti, poptávky e-mailem.
+  * Nízké náklady na údržbu, statický hosting, Google Kalendář pro přehled obsazenosti (dark mode), poptávky e-mailem.
 
 ---
 
 ## 2. Architektura a přehled sekcí webu
 
-1. **Úvod** – Vizuální seznámení, silný headline, klíčové atributy (baletizol, aerial body, zázemí) a rychlé CTA.
-2. **O Vlastině (Příběh & Duše prostoru)** – Emoční příběh vzniku, Blackout Paradox, poděkování komunitě a Doniu.
-3. **Pravidelné akce** – Zvýrazněný **Volný trénink (Open Training)** pro veřejnost a pravidelné kurzy.
-4. **Následující akce & Archiv** – Víkendové workshopy, jamy, divadelní a sousedská setkání.
-5. **Rezervace & Ceník** – Návod na rezervaci, orientační ceny (podpora neziskových projektů), vložený kalendář a Domácí řád.
-6. **Praktické info & Mapa** – Kde přesně nás najdete (nad JamJam), parkování zdarma, noční režim areálu, vybavení a plánek.
-7. **Galerie** – Fotografie sálu, zázemí, hradu pro děti a vzpomínky z rekonstrukce.
-8. **Kontakty** – E-maily, telefon, sociální sítě, provozovatel Blackout Paradox.
+1. **Úvod** (`#uvod`) – Vizuální seznámení, silný headline, klíčové atributy (baletizol, 8 závěsných bodů, zázemí, kapacita až 60), sociální tlačítka (FB, IG) a rychlé CTA.
+2. **O Vlastině (Příběh & Duše prostoru)** (`#o-vlastine`) – Emoční příběh vzniku, Vlastina Paradox a Blackout Paradox, poděkování komunitě a Doniu, kapacita 60 sedících, fotogalerie s hlavní fotkou rekonstrukce (`Vlastina_construction.jpg`).
+3. **Pravidelné akce** (`#pravidelne-akce`) – Zvýrazněný **Volný trénink (Open Training)** pro veřejnost s odkazem na Kalendář pro termíny, bez zbytečné duplikace lokace, info o nevedených trénincích a půjčení rekvizit.
+4. **Následující akce & Archiv** (`#nasledujici-akce`) – Placeholder „Akce se připravují“ a archiv minulých událostí (Otevření dveří 16.6.2026).
+5. **Kalendář a rezervace** (`#kalendar-a-rezervace`) – Návod na rezervaci, vložený Google Kalendář v tmavém režimu (dark mode), orientační ceny a Domácí řád.
+6. **Praktické info & Mapa** (`#prakticke-info`) – Kde přesně nás najdete (Vlastina 889/23, 1. patro nad JamJam), Google Maps embedding, parkování zdarma, noční brána, rozměry (140 m² / 240 m²), kompletní vybavení a zázemí včetně rekvizit, stolu pro práci na kostýmech a toalet v prostoru.
+7. **Galerie** (`#galerie`) – Fotografie sálu, zázemí, Staff workshop a performance.
+8. **Kontakty** (`#kontakty`) – E-mail na prvním místě (`vlastinaparadox@gmail.com`), adresa s odřádkováním, Google Maps embedding, oficiální FB Vlastina Paradox, oficiální IG vlastina_paradox, spolek Vlastina Paradox ve spolupráci s Blackout Paradox.
 
 ---
 
@@ -37,13 +37,13 @@ Tento dokument slouží jako komplexní podklad pro GitHub Copilota a vývojář
 ### 3.1 Hlavička a Navigace
 * **Logo text:** VLASTINA
 * **Položky menu:**
-  1. O Vlastině (`#o-vlastine`)
-  2. Pravidelné akce (`#pravidelne-akce`)
-  3. Následující akce (`#nasledujici-akce`)
-  4. Rezervace & Ceník (`#rezervace`)
-  5. Praktické info (`#prakticke-info`)
-  6. Galerie (`#galerie`)
-  7. Kontakty (`#kontakty`)
+  1. O Vlastině (`#o-vlastine`, `data-target="o-vlastine"`)
+  2. Následující akce (`#nasledujici-akce`, `data-target="nasledujici-akce"`)
+  3. Pravidelné akce (`#pravidelne-akce`, `data-target="pravidelne-akce"`)
+  4. Kalendář a rezervace (`#kalendar-a-rezervace`, `data-target="kalendar-a-rezervace"`)
+  5. Praktické info (`#prakticke-info`, `data-target="prakticke-info"`)
+  6. Kontakty (`#kontakty`, `data-target="kontakty"`)
+  7. Galerie (`#galerie`, `data-target="galerie"`)
 
 ---
 
@@ -53,14 +53,18 @@ Tento dokument slouží jako komplexní podklad pro GitHub Copilota a vývojář
 * **Nadpis (H1):** Vlastina
 * **Podnadpis (Subtitle):** Velký obývák a tréninkový sál v srdci bývalé základny
 * **Popis:**
-  > Hledáš prostor pro tanec, akrobacii, jam session nebo hluboký workshop? Vlastina je otevřené útočiště v Praze 6 pro všechny, kteří tvoří celým tělem i srdcem. Přijď si zatrénovat, sdílet inspiraci nebo si jen sednout k čaji v křesle.
+  > Hledáš prostor pro tanec, akrobacii, jam session, workshop, oslavu nebo jinou akci? Vlastina je otevřené útočiště v Praze 6 pro všechny, kteří tvoří celým tělem i srdcem. Přijď si zatrénovat, sdílet inspiraci nebo si jen užít zajímavou akci ve Vlastině.
 * **Klíčové štítky (Features):**
-  * `<i class="fa-solid fa-feather"></i> Baletizol & 5 závěsných bodů`
-  * `<i class="fa-solid fa-mug-hot"></i> Kuchyňka & útulná lounge`
+  * `<i class="fa-solid fa-feather"></i> Baletizol a 8 závěsných bodů`
+  * `<i class="fa-solid fa-mug-hot"></i> Kuchyňka a útulná lounge`
   * `<i class="fa-solid fa-square-parking"></i> Parkování v areálu zdarma`
-  * `<i class="fa-solid fa-users"></i> Kapacita až 40 lidí`
+  * `<i class="fa-solid fa-users"></i> Kapacita až 60 lidí`
+* **Sociální tlačítka (Hero Socials):**
+  * Umístěna nad hlavními CTA tlačítky.
+  * Facebook: `https://www.facebook.com/profile.php?id=61586614513074`
+  * Instagram: `https://www.instagram.com/vlastina_paradox`
 * **Tlačítka (CTA):**
-  * Primární: `Chci rezervovat prostor` (odkaz na `#rezervace`)
+  * Primární: `Chci rezervovat prostor` (odkaz na `#kalendar-a-rezervace`)
   * Sekundární: `Přijít na volný trénink` (odkaz na `#pravidelne-akce`)
 
 ---
@@ -77,18 +81,21 @@ Tento dokument slouží jako komplexní podklad pro GitHub Copilota a vývojář
   * **Odstavec 2:**
     Plánovat na papíře je snadné. Roztočit kola realizace vlastníma rukama ale bolí. Znamenalo to stovky hodin v montérkách, prach, mozoly a překonávání tisíců drobných zádrhelů, kdy se zdálo, že zdroje i lidské síly narážejí na strop. Když už ruce nemohly a hlava byla plná starostí, podržela nás společná víra v to, co děláme.
   * **Odstavec 3:**
-    Dnes je z Vlastiny živé útočiště. Srdcem je velkorysý sál s profesionálním baletizolem a pěti kotevními body pro závěsnou akrobacii (šály, kruhy, lana). Druhým pólem je zázemí s pohovkami, čajovou kuchyňkou a dětským hradem. Prostor pohodlně unese trénink až 20 cvičících v plném pohybu, nebo až 40 sedících a naslouchajících duší při komunitním kruhu, jamu či představení.
+    Dnes je z Vlastiny živé útočiště. Srdcem je velkorysý sál s profesionálním baletizolem a osmi kotevními body pro závěsnou akrobacii (šály, kruhy, lana). Druhým pólem je zázemí s pohovkami, čajovou kuchyňkou a dětským hradem. Prostor pohodlně unese trénink až 20 cvičících v plném pohybu, nebo až 60 sedících a naslouchajících duší při komunitním kruhu, jamu či představení.
   * **H3:** Děkujeme, že tvoříte s námi
   * **Odstavec 4:**
-    Vlastina stojí díky obrovské vlně solidarity. Díky laskavé podpoře stovek dárců na **Donio**, desítkám dobrovolníků, kteří tu nechali kus svého srdce, a komunitě, která prostor plní životem. Zázemí s láskou spravuje spolek **Blackout Paradox** – tvůrci fyzického divadla, fireshow a nového cirkusu.
+    Vlastina stojí díky obrovské vlně solidarity. Díky laskavé podpoře stovek dárců na **Donio**, desítkám dobrovolníků, kteří tu nechali kus svého srdce, a komunitě, která prostor plní životem. Zázemí s láskou spravuje spolek **Vlastina Paradox** ve spolupráci s **Blackout Paradox** – tvůrci fyzického divadla, fireshow a nového cirkusu.
   * **Závěrečné poselství:**
     *„Každý, kdo k nám vstoupí, vdechuje prostoru kousek své duše. Buď vítán(a) a ciť se tu jako doma.“*
+* **Fotogalerie v sekci O Vlastině:**
+  * Hlavní zobrazená fotka: `Vlastina_construction.jpg`
+  * Náhledy: `Vlastina_construction.jpg`, `Taneční sál s dětmi.jpg`, `Dětský hrad.jpg`, `Kuchyňka.jpg` *(náhled Křesílka při oslavě odstraněn)*.
 
 ---
 
 ### 3.4 Sekce: Pravidelné akce & Volné tréninky
 
-* **Nadpis sekce (H2):** Pravidelný pohyb & tréninky
+* **Nadpis sekce (H2):** Pravidelný pohyb a tréninky
 * **Podnadpis:** Pravidelné otevřené lekce, flow setkání a prostor pro tvůj vlastní růst
 
 #### Hlavní zvýrazněná karta (Hero Card): Volný Trénink (Open Training)
@@ -96,77 +103,57 @@ Tento dokument slouží jako komplexní podklad pro GitHub Copilota a vývojář
 * **Nadpis:** Vlastina – Volný Trénink
 * **Motto:** *Pusť se do vzduchu, do tance a do pohybu.*
 * **Harmonogram & Vstupné:**
-  * **Kdy:** 
-    * **Čtvrtek:** 18:00 – 22:00
-    * **Neděle:** 12:00 – 16:00
-  * **Kde:** Vlastina, Praha 6 (1. patro přímo nad lezeckým centrem JamJam)
-  * **Příspěvek:** **300 Kč / vstup** *(platba pouze v hotovosti na místě)*
+  * **Kdy:** Aktuální termíny najdete v našem [Kalendáři obsazenosti](#kalendar-a-rezervace) *(odkaz vede na sekci Kalendář a rezervace)*
+  * *(Lokace v kartě odstraněna)*
+  * **Cena / Příspěvek:** **300 Kč / vstup** *(platba pouze v hotovosti)*
 * **Pro koho:**
-  Tanečníci, flow artisti, novocirkusáci, akrobaté, jogíni a všichni, kdo milují svobodný pohyb. Díky **pěti kotevním bodům** je prostor přímo stvořený pro trénink na aerial kruzích, šálách, trapézách a dalších závěsných nářadích.
+  Tanečníci, flow artisti, novocirkusáci, akrobaté, jogíni a všichni, kdo milují svobodný pohyb. Díky **8 kotevním bodům** je prostor přímo stvořený pro trénink na aerial kruzích, šálách, trapézách a dalších závěsných nářadích.
 * **Co tě u nás čeká:**
-  * Velký zrcadlový sál s tanečním baletizolem a kotevními body.
-  * Klidná chillout zóna s pohodlnými křesly na regeneraci, protažení a pokec.
-  * Komunitní kuchyňka s teplým čajem a kávou na zahřátí a povzbuzení.
+  Velký sál s baletizolem, zrcadly a závěsnými body. **Tréninky nejsou vedené. K dispozici jsou na půjčení rekvizity pro točení a akrobacii.** Odpočinková zóna s pohodlnými křesly na regeneraci, dětský koutek. Kuchyňka s kávou a čajem.
 * **Co s sebou:**
-  * Čistou sálovou obuv s měkkou podrážkou (na baletizolu je vítáno trénovat i **naboso nebo v ponožkách**).
-  * Hotovost na vstup a otevřenou mysl.
-
-#### Doplňkové karty kurzů:
-* **Karta 1: Nový cirkus & Pozemní akrobacie**
-  * Čas: Každé úterý 18:00 – 20:00
-  * Popis: Tréninky žonglování, partnerské akrobacie, práce s rekvizitou a zpevnění těla pod vedením lektorů z Blackout Paradox.
-  * Cena: 200 Kč / lekce
-  * Kontakt: `info@blackoutparadox.com`
+  Čistou sálovou obuv (na baletizolu lze trénovat i na boso nebo v ponožkách).
 
 ---
 
-### 3.5 Sekce: Následující akce (Workshopy, jamy, komunitní večery)
+### 3.5 Sekce: Následující akce (Workshopy, oslavy, jamy)
 
 * **Nadpis sekce (H2):** Následující události
-* **Podnadpis:** Víkendové workshopy, ceremonie, jamy a sousedská setkání
-* **Ukázky karet akcí:**
-  * **Akce 1: Hudební a taneční jam**
-    * Datum: Sobota 17.10.2026 | 10:00 – 17:00
-    * Popis: Celodenní prostor pro sdílení pohybového výzkumu na šálách a zemi zakončený volnou hudební improvizací.
-    * Vstupné: Dobrovolné (do klobouku na rozvoj prostoru)
-    * Registrace: `info@vlastina.cz`
+* **Podnadpis:** Víkendové workshopy, oslavy, jamy a sousedská setkání
+
+* **Stav akcí (Placeholder):**
+  * **Akce se připravují** – Sledujte náš web nebo kalendář, brzy zveřejníme chystané workshopy, jamy, oslavy a setkání.
 
 * **Archiv akcí:**
   * Tlačítko: `Zobrazit proběhlé akce a workshopy`
-  * Položky archivu: Den otevřených dveřá Vlastiny, Taneční a hudební jam s Joli narozeninami
+  * Položka archivu:
+    * **16. 6. 2026: Vlastina Paradox otevření dveří**
+    * *Popis:* Oficiální představení prostoru pro komunitu, sousedy a přátele.
 
 ---
 
-### 3.6 Sekce: Rezervace prostoru & Domácí řád
+### 3.6 Sekce: Kalendář a rezervace (`#kalendar-a-rezervace`)
 
-* **Nadpis sekce (H2):** Pronájem & Rezervace
+* **Nadpis sekce (H2):** Kalendář a rezervace
 * **Podnadpis:** Zázemí pro tvůj workshop, zkoušku, tanec, jam nebo oslavu
 
-#### Blok 1: Jak na rezervaci & Kalendář
-* Podívej se do našeho kalendáře obsazenosti níže.
-* Pokud je tvůj vysněný termín volný, napiš nám na **`rezervace@vlastina.cz`** (nebo volej na `náš telefon`).
+#### Blok 1: Kalendář obsazenosti
+* **Google Kalendář Embed (Dark mode & visual blocks):**
+  ```html
+  <iframe src="https://calendar.google.com/calendar/embed?src=vlastinaparadox%40gmail.com&ctz=Europe%2FPrague" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+  ```
+* Aplikován tmavý mód (dark mode CSS filtr) v souladu s vizuálním stylem webu.
+
+#### Blok 2: Jak na rezervaci?
+* Podívej se do našeho kalendáře obsazenosti výše.
+* Pokud je tvůj termín volný, napiš nám na **`vlastinaparadox@gmail.com`**.
 * Napiš nám pár slov o sobě, záměru akce, požadovaném čase a technických nárocích. Rádi se domluvíme na detailech.
 
-#### Blok 2: Orientační ceník
-* **Pronájem celého prostoru:** 800 Kč za první hodinu, pak 600 za hodinu
+#### Blok 3: Orientační ceník
+* **Pronájem celého prostoru:** **800 Kč** za první hodinu, poté **600 Kč** za každou další hodinu.
+* *Pro neziskové a komunitní projekty nabízíme individuální podmínky. Nabízíme individuální podmínky v případě dlouhodobého pronájmu.*
 
-
-#### Blok 3: Domácí řád Vlastiny (Pravidla našeho obýváku)
-*Úcta k prostoru a lidem okolo je to, co dělá Vlastinu příjemným místem. Prosíme, vnímej tato pravidla jako společnou dohodu:*
-
-1. **Baletizol je náš posvátný koberec:**
-   * Na taneční podlahu vstupuj **výhradně v čisté sálové obuvi, v ponožkách nebo bosýma nohama**. Venkovní boty i podpatky nech v botníku.
-   * **Přísný zákaz stěhování nábytku na baletizol!** Židle, stoly a těžké předměty patří pouze do relaxační a kobercové zóny.
-   * Dávej velký pozor na **ostré předměty, cvočky, šperky či rekvizity**, které by mohly jemný povrch podlahy poškrábat nebo proříznout.
-2. **Klid pro sousedy (Zavřená okna):**
-   * Zatím jsme útočištěm i pro hlučnější akce a chceme aby to tak zůstalo nadále. **Při hlučnějších akcích, hlasité hudbě a po 22:00 je nutné mít pevně zavřená okna směrem k paneláku.**
-3. **Pravidlo zanechané stopy (aneb ukliď po sobě):**
-   * Vlastina nemá placenou uklízecí četu. Po skončení akce uveď sál, kuchyňku i toalety do původního voňavého stavu. Vynes odpadky a zanech prostor takový, jaký ho chceš příště najít.
-4. **Respekt k živlu a bezpečí:**
-   * Uvnitř prosím nekuřte. K nadechnutí na čerstvém vzduchu využij dvůr před budovou.
-5. **Zlaté pravidlo kuchyňky:**
-   * *„Pokud jsi to ušpinil(a), umyj to. Pokud jsi to rozlil(a), utři to. Pokud ti to upadlo, zvedni to. A pokud nevíš, čí to je, nejez to!“*
-   * Vidíš plnou myčku čistého nádobí? Ukliď ji – zabere to 2 minuty a pomůže všem. Společný čaj a káva jsou pro každého, jídlo se jmenovkou v lednici je tabu.
+#### Blok 4: Domácí řád Vlastiny (Pravidla našeho obýváku)
+*(beze změn)*
 
 ---
 
@@ -176,24 +163,27 @@ Tento dokument slouží jako komplexní podklad pro GitHub Copilota a vývojář
 * **Podnadpis:** Všechno, co se hodí vědět před první návštěvou
 
 #### Blok 1: Kde nás přesně najdeš?
-* **Adresa:** Bývalá vojenská základna, Vlastina 23, Praha 6 – Ruzyně.
+* **Adresa:** Vlastina 889/23, 161 00 Praha 6 – Ruzyně.
 * **Záchytný orientační bod:** Nacházíme se **přímo v 1. patře nad lezeckým centrem JamJam**. Stačí projít hlavním vchodem a vyběhnout schody nahoru.
+* **Mapa:** Google Maps embedding místa Vlastina Paradox + přímý odkaz: [Otevřít v Google Maps](https://maps.app.goo.gl/Th8uEFKo9Sxrz6WF9).
 
 #### Blok 2: Parkování & Noční režim areálu
 * **Parkování:** Přímo v areálu před budovou je **bezplatné parkování** pro auta i dodávky.
-* **Pozor na půlnoční bránu:** **Přesně o půlnoci (00:00) se celý areál zamyká na číselný kód!** Pokud plánuješ zůstat přes noc nebo odjíždět pozdě, zjisti si včas kód u organizátora akce.
+* **Pozor na půlnoční bránu:** Přesně o půlnoci (00:00) se celý areál zamyká na číselný kód.
 
 #### Blok 3: Venkovní prostor před Vlastinou
-* K dispozici máme i otevřený prostor přímo před vchodem – skvělé místo pro posezení na slunci, protažení venku, vyvětrání hlavy nebo letní sousedské grilování.
+* Otevřený dvůr před budovou pro posezení a čerstvý vzduch.
 
 #### Blok 4: Vybavení a zázemí (Checklist)
-* [x] **Taneční sál:** Odpružená podlaha s baletizolem, velkoformátová zrcadla.
-* [x] **Aerial zóna:** 5 pevných kotevních bodů pro závěsnou akrobacii (šály, kruhy).
-* [x] **Zvuk:** Kvalitní hudební aparatura (snadné připojení přes Bluetooth/Jack).
-* [x] **Pro děti i hravé duše:** Dřevěný koutek stylizovaný jako pohádkový hrad.
+* [x] **Taneční sál:** Odpružená podlaha s baletizolem, velkoformátová zrcadla – rozměry 10 × 14 m (140 m²). Celková plocha lounge + taneční sál je 240 m².
+* [x] **Aerial zóna:** 8 pevných kotevních bodů pro závěsnou akrobacii (šály, kruhy, lana).
+* [x] **Rekvizity pro točení a akrobacii k zapůjčení.**
+* [x] **Zvuk:** Možno půjčit menší bluetooth reproduktor.
+* [x] **Pro děti i hravé duše:** Dřevěný koutek stylizovaný jako pohádkový hrad s hračkami k dispozici.
 * [x] **Plně vybavená kuchyňka:** Lednice, myčka, trouba, mikrovlnka, rychlovarná konvice, čaje a káva.
-* [x] **Lounge zóna:** Pohovky a křesla na odpočinek, relaxaci a hluboké debaty.
-* [x] **Sociální zařízení:** Čisté toalety a umývárny přímo na patře.
+* [x] **Lounge zóna:** Pohodlné pohovky a křesla na odpočinek, relaxaci a hluboké debaty, stoly se židlemi, kde třeba můžete i pracovat na svých kostýmech.
+* [x] **Sociální zařízení:** Čisté toalety přímo v prostoru Vlastiny.
+* [x] **Možnost skladování věcí:** Pouze pro přidružené projekty s dlouhodobým pronájmem.
 * [x] **Plánek prostoru:** Schéma dispozice sálu a zázemí (kliknutím zvětšíte).
 
 ---
@@ -203,12 +193,11 @@ Tento dokument slouží jako komplexní podklad pro GitHub Copilota a vývojář
 * **Nadpis sekce (H2):** Pohledy do Vlastiny
 * **Podnadpis:** Fotografie sálu, zázemí, workshopů a naší společné cesty
 * **Popisky k fotkám:**
-- popisky k fotkám jsou pro inspiraci, fotky jsou ve složce "resources", preferované jsou fotky s lidmi, kromě úvodní stránky, tam patří Homepage_main_image.jpg
   1. *Taneční sál s baletizolem* – Světlo, prostor a vzduch pro tvůj pohyb.
   2. *Dětský hrad* – Útočiště pro nejmenší návštěvníky i hravou fantazii.
   3. *Lounge & čajovna* – Zóna pro ztišení, posezení a rozhovory.
   4. *Fireshow & divadlo* – Kořeny spolku Blackout Paradox v akci.
-  5. *Jak vznikal sál* – Broušení, pokládka a litry potu proměněné v domov.
+  5. *Staff workshop* – Rozehřívací meditace.
   6. *Před dokončením* – Dny a noci dobrovolníků na stavbě.
 
 ---
@@ -218,16 +207,18 @@ Tento dokument slouží jako komplexní podklad pro GitHub Copilota a vývojář
 * **Nadpis sekce (H2):** Spojme se
 * **Podnadpis:** Zastav se na trénink, napiš nám nebo se přidej k našim projektům
 * **Kontaktní údaje:**
-  * **Místo:** Vlastina (nad halou JamJam), Vlastina 23, Praha 6
-  * **E-mail pro dotazy:** `info@vlastina.cz`
-  * **E-mail pro rezervace:** `rezervace@vlastina.cz`
-  * **Telefon / WhatsApp:** `náš telefon`
+  * **E-mail pro dotazy, akce a rezervace:** `vlastinaparadox@gmail.com` (na prvním místě)
+  * **Místo:** Vlastina (nad halou JamJam),  
+    Vlastina 889/23, 161 00 Praha 6
+  * **Mapa:** Google Maps embedding + odkaz: [Otevřít v Google Maps](https://maps.app.goo.gl/Th8uEFKo9Sxrz6WF9)
+* **Sociální sítě:**
+  * **Facebook:** [Vlastina Paradox](https://www.facebook.com/profile.php?id=61586614513074)
+  * **Instagram:** [@vlastina_paradox](https://www.instagram.com/vlastina_paradox)
 * **Provozovatel:**
-  * **Blackout Paradox z.s.**
-  * IČO: 12345678
-  * Umělecká skupina věnující se fyzickému divadlu, flow arts a akrobacii.
-  * Web: [blackoutparadox.com](https://blackoutparadox.com/)
+  * **spolek Vlastina Paradox**
+  * IČO: 29962056
+  * ve spolupráci s: **Blackout Paradox** ([blackoutparadox.com](https://blackoutparadox.com/))
 * **Patička webu:**
-  * *© 2026 Vlastina space. Vytvořeno s láskou pro komunitu spolkem Blackout Paradox a přáteli.*
+  * *© 2026 Vlastina space. Vytvořeno s láskou pro komunitu spolkem Vlastina Paradox a přáteli.*
 
 ---

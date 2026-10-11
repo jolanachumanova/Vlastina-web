@@ -6,7 +6,7 @@
 
 document.addEventListener("DOMContentLoaded", () => {
     // --- Selectors ---
-    const navLinks = document.querySelectorAll(".nav-link, .hero-actions .btn, #nav-logo-btn");
+    const navLinks = document.querySelectorAll(".nav-link, .hero-actions .btn, #nav-logo-btn, [data-target]");
     const sections = document.querySelectorAll(".tab-section");
     const mobileNavToggle = document.querySelector(".mobile-nav-toggle");
     const navMenu = document.querySelector(".nav-menu");
