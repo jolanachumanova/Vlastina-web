@@ -1104,7 +1104,7 @@ h3 {
 }
 
 .plan-image-wrapper {
-    max-width: 800px;
+    max-width: 650px;
     margin: 1.5rem auto;
     border-radius: var(--border-radius);
     overflow: hidden;
@@ -1149,7 +1149,7 @@ h3 {
 
 .contact-item {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     gap: 1rem;
     font-size: 1.1rem;
     margin-bottom: 1.5rem;
@@ -1159,6 +1159,21 @@ h3 {
     font-size: 1.3rem;
     color: var(--color-accent-primary);
     width: 25px;
+    margin-top: 0.2rem;
+    flex-shrink: 0;
+}
+
+.contact-text-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+}
+
+.contact-subtext {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
 }
 
 .contact-item a {
@@ -1792,6 +1807,20 @@ h3 {
 
     .gallery-grid {
         grid-template-columns: repeat(2, 1fr);
+    }
+
+    .contact-item {
+        align-items: flex-start;
+    }
+
+    .contact-text-group {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.25rem;
+    }
+
+    .contact-item a {
+        word-break: break-word;
     }
 }
 

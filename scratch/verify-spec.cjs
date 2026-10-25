@@ -5,6 +5,10 @@ const rootDir = path.resolve(__dirname, '..');
 const html = fs.readFileSync(path.join(rootDir, 'index.html'), 'utf-8');
 const css = fs.readFileSync(path.join(rootDir, 'style.css'), 'utf-8');
 const js = fs.readFileSync(path.join(rootDir, 'app.js'), 'utf-8');
+let firebaseConfig = {};
+try {
+    firebaseConfig = JSON.parse(fs.readFileSync(path.join(rootDir, 'firebase.json'), 'utf-8'));
+} catch (e) {}
 
 const tests = [];
 let passed = 0;
@@ -123,7 +127,7 @@ test('B6: Kalendář a rezervace section embeds calendar with dark mode styling,
 test('B7: Praktické info: address, area dimensions, and refined amenities list', () => {
     assert(html.includes('Vlastina 889/23'), 'Missing Vlastina 889/23');
     assert(html.includes('140 m') || html.includes('140&nbsp;m'), 'Missing 140 m2');
-    assert(html.includes('240 m') || html.includes('240&nbsp;m'), 'Missing 240 m2');
+    assert(html.includes('250 m') || html.includes('250&nbsp;m'), 'Missing 250 m2');
     assert(html.includes('Rekvizity pro točení a akrobacii k zapůjčení'), 'Missing Rekvizity pro točení a akrobacii k zapůjčení');
     assert(html.includes('dřevěný koutek stylizovaný jako pohádkový hrad s hračkami k dispozici'), 'Missing castle with toys');
     assert(html.includes('pracovat na svých kostýmech'), 'Missing costume work tables note in lounge');
@@ -157,6 +161,156 @@ test('B9: Galerie contains Staff workshop.jpg and does not contain Vlastina_cons
     assert(galerieHtml.includes('Staff workshop'), 'Galerie missing title Staff workshop');
     assert(galerieHtml.includes('Rozehřívací meditace'), 'Galerie missing subtitle Rozehřívací meditace');
     assert(!galerieHtml.includes('Vlastina_construction.jpg'), 'Galerie should not contain Vlastina_construction.jpg');
+});
+
+test('B10: Praktické info: Plánek prostoru is view-only (no download link) and uses current plan from /resources/planek', () => {
+    const praktickeMatch = html.match(/<section id="prakticke-info"[\s\S]*?<\/section>/);
+    assert(praktickeMatch, 'Section #prakticke-info not found');
+    const praktickeHtml = praktickeMatch[0];
+    assert(praktickeHtml.includes('resources/planek/'), 'Plánek prostoru must reference file in resources/planek/');
+    assert(praktickeHtml.includes('Vlastina_Paradox_planek_V2.png'), 'Plánek image must reference Vlastina_Paradox_planek_V2.png');
+    assert(fs.existsSync(path.join(rootDir, 'resources/planek/Vlastina_Paradox_planek_V2.png')), 'Rendered plan PNG must exist in resources/planek');
+    assert(!praktickeHtml.includes('.pdf'), 'Plánek must be view-only, download link should not be present');
+    assert(!praktickeHtml.includes('ke stažení'), 'Download phrase "ke stažení" must not be present in Praktické info');
+});
+
+// --- Test Suite C: Mobile Responsiveness Verification ---
+test('C1: Responsive viewport meta tag and accessible mobile toggle button', () => {
+    assert(html.includes('<meta name="viewport" content="width=device-width, initial-scale=1.0">'), 'Missing standard mobile viewport meta tag');
+    assert(html.includes('class="mobile-nav-toggle"'), 'Missing .mobile-nav-toggle in HTML');
+    assert(html.includes('aria-label="Otevřít menu"'), 'Missing aria-label on mobile nav toggle button');
+    
+    // Verify 3 hamburger bars
+    const toggleMatch = html.match(/<button class="mobile-nav-toggle"[^>]*>([\s\S]*?)<\/button>/);
+    assert(toggleMatch, 'Cannot find mobile-nav-toggle button tag');
+    const barCount = (toggleMatch[1].match(/class="bar"/g) || []).length;
+    assert(barCount === 3, `Expected 3 bar elements in mobile-nav-toggle, got ${barCount}`);
+});
+
+test('C2: Mobile CSS rules for <= 768px (Hamburger toggle, menu drawer, flexible columns)', () => {
+    assert(css.includes('@media (max-width: 768px)'), 'Missing @media (max-width: 768px) in style.css');
+    
+    // Check mobile nav toggle display
+    const media768Match = css.match(/@media \(max-width: 768px\) \{([\s\S]*?)\n\}/);
+    assert(media768Match, 'Could not parse @media (max-width: 768px) block');
+    const media768 = media768Match[1];
+    
+    assert(media768.includes('.mobile-nav-toggle'), 'Missing .mobile-nav-toggle rules in 768px media query');
+    assert(media768.includes('display: flex'), 'Mobile nav toggle should have display: flex in 768px');
+    
+    // Check nav-menu mobile drawer
+    assert(media768.includes('.nav-menu'), 'Missing .nav-menu styling in 768px media query');
+    assert(media768.includes('.nav-menu.open'), 'Missing .nav-menu.open drawer styling in 768px');
+    assert(media768.includes('flex-direction: column'), 'Mobile nav menu ul should be column');
+    
+    // Check hero buttons stacking
+    assert(media768.includes('.hero-actions'), 'Missing .hero-actions stacking in 768px');
+    
+    // Check grid collapses to 1fr
+    assert(media768.includes('grid-template-columns: 1fr'), 'Grids should collapse to 1fr on mobile');
+});
+
+test('C3: Small mobile CSS rules for <= 480px (Compact viewport typography and spacing)', () => {
+    assert(css.includes('@media (max-width: 480px)'), 'Missing @media (max-width: 480px) in style.css');
+    const media480Match = css.match(/@media \(max-width: 480px\) \{([\s\S]*?)\n\}/);
+    assert(media480Match, 'Could not parse @media (max-width: 480px) block');
+    const media480 = media480Match[1];
+    
+    assert(media480.includes('font-size: 2.2rem') || media480.includes('h1'), 'Missing responsive h1 adjustments in 480px query');
+    assert(media480.includes('.gallery-grid') && media480.includes('grid-template-columns: 1fr'), 'Gallery grid should be 1 column on <= 480px');
+});
+
+test('C4: Mobile navigation controller logic in app.js', () => {
+    // Check toggle listener exists
+    assert(js.includes('mobileNavToggle.addEventListener("click", toggleMobileMenu)') || js.includes('mobileNavToggle.addEventListener'), 'Missing click listener on mobileNavToggle');
+    assert(js.includes('mobileNavToggle.classList.toggle("open")'), 'toggleMobileMenu must toggle open on button');
+    assert(js.includes('navMenu.classList.toggle("open")'), 'toggleMobileMenu must toggle open on menu');
+    
+    // Check auto-close menu when link tapped
+    assert(js.includes('navMenu.classList.contains("open")'), 'switchTab should check if mobile navMenu is open');
+    assert(js.includes('toggleMobileMenu()'), 'switchTab should call toggleMobileMenu when open');
+    
+    // Check smooth scroll on tab switch
+    assert(js.includes('window.scrollTo({ top: 0, behavior: "smooth" })'), 'switchTab should scroll smoothly to top of viewport');
+});
+
+test('C5: Responsive media and iframe containment', () => {
+    // Check calendar responsiveness
+    assert(css.includes('.calendar-container'), 'Missing .calendar-container in style.css');
+    assert(html.includes('<div class="calendar-container">'), 'Calendar iframe must be wrapped in responsive container');
+    
+    // Check map embed responsive wrapper
+    assert(html.includes('class="map-embed-wrapper"'), 'Map iframe must be wrapped in .map-embed-wrapper');
+    assert(html.includes('loading="lazy"'), 'Google Map iframe should have loading="lazy" for mobile performance');
+    
+    // Check image containment in CSS
+    assert(css.includes('max-width: 100%') || css.includes('width: 100%'), 'Images should be constrained to 100% width');
+});
+
+test('C6: Mobile contact layout places email subtext under the email address without overflow', () => {
+    assert(html.includes('class="contact-text-group"'), 'Email contact item should wrap text in .contact-text-group');
+    assert(html.includes('contact-subtext'), 'Email annotation should have .contact-subtext class');
+    const media768Match = css.match(/@media \(max-width: 768px\) \{([\s\S]*?)\n\}/);
+    assert(media768Match, 'Missing 768px media query');
+    const media768 = media768Match[1];
+    assert(media768.includes('.contact-text-group') && media768.includes('flex-direction: column'), 'Mobile contact-text-group should stack as column');
+});
+
+// --- Test Suite D: Security Hardening Verification ---
+test('D1: Firebase hosting security configuration (Headers & Ignore rules)', () => {
+    assert(firebaseConfig && firebaseConfig.hosting, 'firebase.json is missing hosting configuration');
+    const hosting = firebaseConfig.hosting;
+    
+    // Check ignore rules protect sensitive directories
+    const ignoreList = hosting.ignore || [];
+    assert(ignoreList.includes('scratch/**'), 'firebase.json ignore must include scratch/**');
+    assert(ignoreList.includes('resources/agent-resources/**'), 'firebase.json ignore must include resources/agent-resources/**');
+    
+    // Check security headers exist
+    const headersList = hosting.headers || [];
+    assert(headersList.length > 0, 'firebase.json must define headers array');
+    
+    const rootHeadersConfig = headersList.find(h => h.source === '**');
+    assert(rootHeadersConfig, 'firebase.json must have headers rule for source "**"');
+    
+    const headers = rootHeadersConfig.headers || [];
+    const headerMap = {};
+    headers.forEach(h => {
+        headerMap[h.key.toLowerCase()] = h.value;
+    });
+    
+    assert(headerMap['x-content-type-options'] === 'nosniff', 'Missing X-Content-Type-Options: nosniff header');
+    assert(headerMap['x-frame-options'] === 'SAMEORIGIN' || headerMap['x-frame-options'] === 'DENY', 'Missing X-Frame-Options header');
+    assert(headerMap['referrer-policy'] === 'strict-origin-when-cross-origin', 'Missing Referrer-Policy header');
+    assert(headerMap['permissions-policy'], 'Missing Permissions-Policy header');
+    assert(headerMap['content-security-policy'], 'Missing Content-Security-Policy header');
+});
+
+test('D2: Subresource Integrity (SRI) on external stylesheets', () => {
+    // Check FontAwesome link tag in index.html
+    const faMatch = html.match(/<link[^>]*cdnjs\.cloudflare\.com\/ajax\/libs\/font-awesome[^>]*>/);
+    assert(faMatch, 'Cannot find FontAwesome link tag in index.html');
+    const faTag = faMatch[0];
+    assert(faTag.includes('integrity="'), 'FontAwesome link tag must have integrity attribute');
+    assert(faTag.includes('crossorigin="anonymous"'), 'FontAwesome link tag must have crossorigin="anonymous"');
+});
+
+test('D3: Hardened external links with rel="noopener noreferrer"', () => {
+    const externalLinkRegex = /<a\s+[^>]*href="https?:\/\/[^"]*"[^>]*target="_blank"[^>]*>/g;
+    let match;
+    let checkedCount = 0;
+    while ((match = externalLinkRegex.exec(html)) !== null) {
+        const linkTag = match[0];
+        assert(linkTag.includes('rel="noopener noreferrer"'), `External link missing rel="noopener noreferrer": ${linkTag}`);
+        checkedCount++;
+    }
+    assert(checkedCount > 0, 'No external target="_blank" links found to check');
+});
+
+test('D4: Clean separation of behavior - No inline onclick handlers in HTML', () => {
+    assert(!html.includes('onclick="changeAboutImage'), 'Inline onclick="changeAboutImage" should be removed from HTML');
+    assert(!html.includes('onclick="closeLightbox'), 'Inline onclick="closeLightbox" should be removed from HTML');
+    assert(!html.includes('onclick='), 'HTML should not contain any inline onclick attributes');
 });
 
 // Output results

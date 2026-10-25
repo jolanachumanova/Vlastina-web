@@ -14,9 +14,9 @@
         href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@700;800&family=Space+Grotesk:wght@600;700;800&display=swap"
         rel="stylesheet">
     <!-- CSS Stylesheet -->
-    <link rel="stylesheet" href="style.css?v=1.4">
+    <link rel="stylesheet" href="style.css?v=1.5">
     <!-- FontAwesome for Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer">
 </head>
 
 <body>
@@ -76,9 +76,9 @@
                         <div class="feature-tag"><i class="fa-solid fa-users"></i> Kapacita až 60 lidí</div>
                     </div>
                     <div class="hero-socials">
-                        <a href="https://www.facebook.com/profile.php?id=61586614513074" target="_blank" rel="noopener"
+                        <a href="https://www.facebook.com/profile.php?id=61586614513074" target="_blank" rel="noopener noreferrer"
                             aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-                        <a href="https://www.instagram.com/vlastina_paradox" target="_blank" rel="noopener"
+                        <a href="https://www.instagram.com/vlastina_paradox" target="_blank" rel="noopener noreferrer"
                             aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
                     </div>
                     <div class="hero-actions">
@@ -124,14 +124,10 @@
                                 class="gallery-main-img" id="about-gallery-display">
                         </div>
                         <div class="gallery-thumbs">
-                            <img src="resources/images/vlastina-historie/Vlastina_construction.jpg" alt="Rekonstrukce Vlastiny" class="thumb active"
-                                onclick="changeAboutImage(this)">
-                            <img src="resources/images/vlastina-prostory/Taneční sál s dětmi.jpg" alt="Taneční sál" class="thumb"
-                                onclick="changeAboutImage(this)">
-                            <img src="resources/images/vlastina-prostory/Dětský hrad.jpg" alt="Dětský hrad" class="thumb"
-                                onclick="changeAboutImage(this)">
-                            <img src="resources/images/vlastina-prostory/Kuchyňka.jpg" alt="Kuchyňka" class="thumb"
-                                onclick="changeAboutImage(this)">
+                            <img src="resources/images/vlastina-historie/Vlastina_construction.jpg" alt="Rekonstrukce Vlastiny" class="thumb active">
+                            <img src="resources/images/vlastina-prostory/Taneční sál s dětmi.jpg" alt="Taneční sál" class="thumb">
+                            <img src="resources/images/vlastina-prostory/Dětský hrad.jpg" alt="Dětský hrad" class="thumb">
+                            <img src="resources/images/vlastina-prostory/Kuchyňka.jpg" alt="Kuchyňka" class="thumb">
                         </div>
                     </div>
                 </div>
@@ -340,7 +336,7 @@
                             </div>
                             <p>Nacházíme se <strong>přímo v 1. patře nad lezeckým centrem JamJam</strong>. Stačí projít hlavním vchodem a vyběhnout schody nahoru.</p>
                             <div style="margin-top: 1.25rem;">
-                                <a href="https://maps.app.goo.gl/Th8uEFKo9Sxrz6WF9" target="_blank" rel="noopener" class="btn btn-sm btn-outline">
+                                <a href="https://maps.app.goo.gl/Th8uEFKo9Sxrz6WF9" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-outline">
                                     <i class="fa-solid fa-arrow-up-right-from-square"></i> Otevřít v Google Maps
                                 </a>
                             </div>
@@ -376,7 +372,7 @@
                         <div class="amenities-grid">
                             <div class="amenity-item">
                                 <i class="fa-solid fa-check check-icon"></i>
-                                <span>Taneční sál – odpružená podlaha s baletizolem, velkoformátová zrcadla (rozměry 10 × 14 m / 140 m², celková plocha 240 m²)</span>
+                                <span>Taneční sál – odpružená podlaha s baletizolem, velkoformátová zrcadla (rozměry 10 × 14 m / 140 m², celková plocha 250 m²)</span>
                             </div>
                             <div class="amenity-item">
                                 <i class="fa-solid fa-check check-icon"></i>
@@ -417,7 +413,7 @@
                     <div class="card glass-panel plan-card-full">
                         <h3>Plánek prostoru</h3>
                         <div class="plan-image-wrapper">
-                            <img src="resources/images/Vlastina_space_layout.JPG"
+                            <img src="resources/planek/Vlastina_Paradox_planek_V2.png"
                                 alt="Orientační plánek prostoru Vlastina" class="plan-image">
                         </div>
                         <p class="plan-note">* Kliknutím na plánek jej zvětšíte.</p>
@@ -440,7 +436,10 @@
                         <h3>Vlastina komunitní prostor</h3>
                         <p class="contact-item">
                             <i class="fa-solid fa-envelope"></i>
-                            <a href="mailto:vlastinaparadox@gmail.com">vlastinaparadox@gmail.com</a> <span class="text-muted" style="font-size: 0.85rem;">(dotazy, akce a rezervace prostoru)</span>
+                            <span class="contact-text-group">
+                                <a href="mailto:vlastinaparadox@gmail.com">vlastinaparadox@gmail.com</a>
+                                <span class="contact-subtext text-muted">(dotazy, akce a rezervace prostoru)</span>
+                            </span>
                         </p>
                         <p class="contact-item">
                             <i class="fa-solid fa-location-dot"></i>
@@ -448,7 +447,7 @@
                         </p>
 
                         <div style="margin: 1.25rem 0;">
-                            <a href="https://maps.app.goo.gl/Th8uEFKo9Sxrz6WF9" target="_blank" rel="noopener" class="btn btn-sm btn-outline">
+                            <a href="https://maps.app.goo.gl/Th8uEFKo9Sxrz6WF9" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-outline">
                                 <i class="fa-solid fa-map-location-dot"></i> Otevřít v Google Maps
                             </a>
                         </div>
@@ -464,13 +463,13 @@
                         <p><strong>spolek Vlastina Paradox</strong></p>
                         <p>IČO: 29962056</p>
                         <p style="margin-top: 0.5rem; color: var(--color-text-muted); font-size: 0.95rem;">
-                            Ve spolupráci s <strong><a href="https://blackoutparadox.com/" target="_blank" rel="noopener" class="text-link" style="color: var(--color-accent-primary);">Blackout Paradox</a></strong>.
+                            Ve spolupráci s <strong><a href="https://blackoutparadox.com/" target="_blank" rel="noopener noreferrer" class="text-link" style="color: var(--color-accent-primary);">Blackout Paradox</a></strong>.
                         </p>
 
                         <div class="social-links">
-                            <a href="https://www.facebook.com/profile.php?id=61586614513074" target="_blank" rel="noopener"
+                            <a href="https://www.facebook.com/profile.php?id=61586614513074" target="_blank" rel="noopener noreferrer"
                                 aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-                            <a href="https://www.instagram.com/vlastina_paradox" target="_blank" rel="noopener"
+                            <a href="https://www.instagram.com/vlastina_paradox" target="_blank" rel="noopener noreferrer"
                                 aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
                         </div>
                     </div>
@@ -563,7 +562,7 @@
     </footer>
 
     <!-- Custom Lightbox Modal -->
-    <div id="lightbox-modal" class="lightbox hidden" onclick="closeLightbox()">
+    <div id="lightbox-modal" class="lightbox hidden">
         <span class="lightbox-close">&times;</span>
         <img class="lightbox-content" id="lightbox-img" alt="Zvětšený náhled">
     </div>

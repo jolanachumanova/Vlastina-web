@@ -113,6 +113,22 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
     }
+
+    // --- About Gallery Thumbs Click Listeners ---
+    document.querySelectorAll(".gallery-thumbs .thumb").forEach(thumb => {
+        thumb.addEventListener("click", () => {
+            changeAboutImage(thumb);
+        });
+    });
+
+    // --- Lightbox Modal Backdrop & Close Button Listeners ---
+    if (lightboxModal) {
+        lightboxModal.addEventListener("click", (e) => {
+            if (e.target === lightboxModal || e.target.classList.contains("lightbox-close")) {
+                closeLightbox();
+            }
+        });
+    }
 });
 
 // --- About Gallery Image Switcher ---
