@@ -284,6 +284,8 @@ test('D1: Firebase hosting security configuration (Headers & Ignore rules)', () 
     assert(headerMap['referrer-policy'] === 'strict-origin-when-cross-origin', 'Missing Referrer-Policy header');
     assert(headerMap['permissions-policy'], 'Missing Permissions-Policy header');
     assert(headerMap['content-security-policy'], 'Missing Content-Security-Policy header');
+    assert(headerMap['content-security-policy'].includes('https://maps.google.com'), 'CSP frame-src must include https://maps.google.com');
+    assert(headerMap['content-security-policy'].includes('https://www.google.com'), 'CSP frame-src must include https://www.google.com for Google Maps redirects');
 });
 
 test('D2: Subresource Integrity (SRI) on external stylesheets', () => {
