@@ -26,7 +26,7 @@ Tento dokument slouží jako komplexní podklad a Single Source of Truth (SSOT) 
 3. **Pravidelné akce** (`#pravidelne-akce`) – Zvýrazněný **Volný trénink (Open Training)** pro veřejnost s odkazem na Kalendář pro termíny, bez zbytečné duplikace lokace, info o nevedených trénincích a půjčení rekvizit.
 4. **Následující akce & Archiv** (`#nasledujici-akce`) – Placeholder „Akce se připravují“ a archiv minulých událostí (Otevření dveří 16.6.2026).
 5. **Kalendář a rezervace** (`#kalendar-a-rezervace`) – Návod na rezervaci, vložený Google Kalendář v tmavém režimu (dark mode), orientační ceny a Domácí řád.
-6. **Praktické info & Mapa** (`#prakticke-info`) – Kde přesně nás najdete (Vlastina 889/23, 1. patro nad JamJam), Google Maps embedding, parkování zdarma, noční brána, rozměry (140 m² / 240 m²), kompletní vybavení a zázemí včetně rekvizit, stolu pro práci na kostýmech a toalet v prostoru.
+6. **Praktické info & Mapa** (`#prakticke-info`) – Kde přesně nás najdete (Vlastina 889/23, 1. patro nad JamJam), Google Maps embedding, parkování zdarma, noční brána, rozměry (140 m² / 250 m²), kompletní vybavení a zázemí včetně rekvizit, místa pro práci na kostýmech a toalet v prostoru, plánek prostoru (pouze view-only bez možnosti stažení, vždy aktuální ze složky `/resources/planek`).
 7. **Galerie** (`#galerie`) – Fotografie sálu, zázemí, Staff workshop a performance.
 8. **Kontakty** (`#kontakty`) – E-mail na prvním místě (`vlastinaparadox@gmail.com`), adresa s odřádkováním, Google Maps embedding, oficiální FB Vlastina Paradox, oficiální IG vlastina_paradox, spolek Vlastina Paradox ve spolupráci s Blackout Paradox.
 
@@ -175,7 +175,7 @@ Tento dokument slouží jako komplexní podklad a Single Source of Truth (SSOT) 
 * Otevřený dvůr před budovou pro posezení a čerstvý vzduch.
 
 #### Blok 4: Vybavení a zázemí (Checklist)
-* [x] **Taneční sál:** Odpružená podlaha s baletizolem, velkoformátová zrcadla – rozměry 10 × 14 m (140 m²). Celková plocha lounge + taneční sál je 240 m².
+* [x] **Taneční sál:** Odpružená podlaha s baletizolem, velkoformátová zrcadla – rozměry 10 × 14 m (140 m²). Celková plocha lounge + taneční sál je 250 m².
 * [x] **Aerial zóna:** 8 pevných kotevních bodů pro závěsnou akrobacii (šály, kruhy, lana).
 * [x] **Rekvizity pro točení a akrobacii k zapůjčení.**
 * [x] **Zvuk:** Možno půjčit menší bluetooth reproduktor.
@@ -184,7 +184,7 @@ Tento dokument slouží jako komplexní podklad a Single Source of Truth (SSOT) 
 * [x] **Lounge zóna:** Pohodlné pohovky a křesla na odpočinek, relaxaci a hluboké debaty, stoly se židlemi, kde třeba můžete i pracovat na svých kostýmech.
 * [x] **Sociální zařízení:** Čisté toalety přímo v prostoru Vlastiny.
 * [x] **Možnost skladování věcí:** Pouze pro přidružené projekty s dlouhodobým pronájmem.
-* [x] **Plánek prostoru:** Schéma dispozice sálu a zázemí (kliknutím zvětšíte).
+* [x] **Plánek prostoru:** Schéma dispozice sálu a zázemí (pouze view-only – kliknutím zvětšíte; funkce stažení plánku nemá být dostupná). V sekci má být vždy zobrazen aktuální plánek ze složky `/resources/planek`.
 
 ---
 
